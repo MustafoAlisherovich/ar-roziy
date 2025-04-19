@@ -15,28 +15,23 @@ export const HEADER_LOGO = {
 export const serviceCards = [
 	{
 		title: 'INTERVENTSION Kardiojarrohlik',
-		description:
-			"Bu yurak va qon tomirlari kasalliklarini jarrohlik yo'li bilan davolash bilan shug'ullanadigan tibbiyot sohasi.",
+		icon: '/assets/heart-pulse.svg',
 	},
 	{
-		title: 'Travmatologiya',
-		description:
-			'Suyak va mushak tizimidagi shikastlanishlarni davolovchi soha.',
+		title: 'INTERVENTSION Kardiojarrohlik',
+		icon: '/assets/heart-pulse.svg',
 	},
 	{
-		title: 'Ginekologiya',
-		description:
-			'Ayollar reproduktiv tizimiga oid kasalliklarni o‘rganadi va davolaydi.',
+		title: 'INTERVENTSION Kardiojarrohlik',
+		icon: '/assets/heart-pulse.svg',
 	},
 	{
-		title: 'Ginekologiya',
-		description:
-			'Ayollar reproduktiv tizimiga oid kasalliklarni o‘rganadi va davolaydi.',
+		title: 'INTERVENTSION Kardiojarrohlik',
+		icon: '/assets/heart-pulse.svg',
 	},
 	{
-		title: 'Ginekologiya',
-		description:
-			'Ayollar reproduktiv tizimiga oid kasalliklarni o‘rganadi va davolaydi.',
+		title: 'INTERVENTSION Kardiojarrohlik',
+		icon: '/assets/heart-pulse.svg',
 	},
 ]
 
@@ -64,6 +59,12 @@ export const specialists = [
 		firstName: 'Jordan',
 		lastName: 'Micheal',
 		specialization: 'Haematologiya',
+	},
+	{
+		image: '/doctors/img3.jpg',
+		firstName: 'Tina',
+		lastName: 'Nikolaeva',
+		specialization: 'Neyroxirurgiya',
 	},
 ]
 

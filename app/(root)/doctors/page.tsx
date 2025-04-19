@@ -1,4 +1,3 @@
-import { Card, CardContent } from '@/components/ui/card'
 import {
 	Carousel,
 	CarouselContent,
@@ -11,27 +10,27 @@ import Image from 'next/image'
 
 const DoctorsPage = () => {
 	return (
-		<Carousel className='w-full max-w-5xl mx-auto'>
+		<Carousel className='w-full max-w-6xl mx-auto'>
 			<CarouselContent>
 				{specialists.map((doctors, index) => (
-					<CarouselItem key={index} className='basis-auto md:basis-1/3'>
-						<Card className='w-64 overflow-hidden rounded-2xl shadow-md items-start'>
+					<CarouselItem key={index} className='basis-auto md:basis-1/4'>
+						<div className='flex flex-col items-center gap-2 p-4'>
 							<Image
 								src={doctors.image}
 								alt={`${doctors.firstName} ${doctors.lastName}`}
-								className=' h-60 object-cover'
-								width={256}
-								height={224}
+								className='w-50 h-50 rounded-full object-cover shadow'
+								width={400}
+								height={400}
 							/>
-							<CardContent className='p-4'>
-								<h3 className='text-lg font-semibold'>
+							<div className='text-center'>
+								<p className='text-lg font-semibold text-gray-800'>
 									{doctors.firstName} {doctors.lastName}
-								</h3>
-								<p className='text-sm text-muted-foreground'>
+								</p>
+								<p className='text-sm text-gray-500'>
 									{doctors.specialization}
 								</p>
-							</CardContent>
-						</Card>
+							</div>
+						</div>
 					</CarouselItem>
 				))}
 			</CarouselContent>

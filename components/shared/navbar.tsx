@@ -1,6 +1,9 @@
 import Logo from '@/components/shared/logo'
 import { NavLinks } from '@/constants'
+import { FacebookIcon, InstagramIcon, Phone } from 'lucide-react'
 import Link from 'next/link'
+import { Button } from '../ui/button'
+import LanguageDropdown from './language-dropdown'
 
 const Navbar = () => {
 	return (
@@ -24,6 +27,24 @@ const Navbar = () => {
 							</Link>
 						))}
 					</nav>
+					<div className='md:flex items-center space-x-4 hidden'>
+						<LanguageDropdown />
+						<Button size={'icon'} variant={'ghost'}>
+							<a href='+998901234567'>
+								<Phone />
+							</a>
+						</Button>
+						<Button size={'icon'} variant={'ghost'}>
+							<a href='https://www.instagram.com/ar.roziy_clinic'>
+								<InstagramIcon />
+							</a>
+						</Button>
+						<Button size={'icon'} variant={'ghost'}>
+							<a href='https://www.facebook.com/arroziy.clinic'>
+								<FacebookIcon />
+							</a>
+						</Button>
+					</div>
 				</div>
 			</div>
 		</header>
