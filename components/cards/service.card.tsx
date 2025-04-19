@@ -35,7 +35,7 @@ const ServiceCard = ({ title, description }: Props) => {
 					{/* Back Side */}
 					<Card
 						className={clsx(
-							'absolute w-full h-full shadow backface-hidden rotate-y-180 flex items-center justify-center bg-green-700 text-white p-4'
+							'absolute w-full h-full shadow backface-hidden rotate-y-180 flex items-center justify-center bg-primary text-white p-4'
 						)}
 					>
 						<p className='text-center'>{description}</p>

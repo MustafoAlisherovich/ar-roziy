@@ -15,13 +15,13 @@ const Navbar = () => {
 					{/* Nav Links */}
 					<nav className='flex space-x-8 text-gray-700 text-sm font-medium'>
 						{NavLinks.map(nav => (
-							<a
+							<Link
 								key={nav.name}
 								href={nav.href}
 								className='py-2 px-3 hover:bg-sidebar-primary-foreground hover:text-primary'
 							>
 								{nav.name}
-							</a>
+							</Link>
 						))}
 					</nav>
 				</div>

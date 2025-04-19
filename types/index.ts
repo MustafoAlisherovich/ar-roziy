@@ -10,3 +10,9 @@ export interface IDoctors {
 	lastName: string
 	specialization: string
 }
+
+export interface IBlog {
+	title: string
+	description: string
+	image: string
+}

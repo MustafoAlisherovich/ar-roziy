@@ -1,5 +1,6 @@
 import Title from '@/components/shared/title'
 import AboutPage from './about/page'
+import ContactPage from './contact/page'
 import DoctorsPage from './doctors/page'
 import HomePage from './home/page'
 import ServicesPage from './services/page'
@@ -14,6 +15,8 @@ const Page = () => {
 			<ServicesPage />
 			<Title title='bizning mutaxassislarimiz' />
 			<DoctorsPage />
+			<Title title='aloqa' />
+			<ContactPage />
 		</>
 	)
 }

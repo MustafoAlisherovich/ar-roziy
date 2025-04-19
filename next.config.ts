@@ -1,9 +1,5 @@
 import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
-	images: {
-		domains: ['ar-roziy.uz'],
-	},
-}
+const nextConfig: NextConfig = {}
 
 export default nextConfig

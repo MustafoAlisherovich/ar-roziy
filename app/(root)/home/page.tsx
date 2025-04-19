@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 const HomePage = () => {
 	return (
@@ -23,9 +24,14 @@ const HomePage = () => {
 				</p>
 
 				<div className='gap-4 mt-4'>
-					<Button size={'lg'} className='font-semibold shadow hover:shadow-md'>
-						BIZNING BLOGLARIMIZ
-					</Button>
+					<Link href={'/blogs'}>
+						<Button
+							size={'lg'}
+							className='font-semibold shadow hover:shadow-md'
+						>
+							BIZNING BLOGLARIMIZ
+						</Button>
+					</Link>
 				</div>
 			</div>
 		</section>

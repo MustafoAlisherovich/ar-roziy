@@ -1,13 +1,16 @@
-export const logo =
-	'https://ar-roziy.uz/_next/image?url=%2Fimages%2Fimages%2Flogo.jpg&w=256&q=75'
-
 export const NavLinks = [
-	{ name: 'Bosh sahifa', href: '#home' },
+	{ name: 'Bosh sahifa', href: '/' },
 	{ name: 'Biz haqimizda', href: '#about' },
 	{ name: 'Xizmatlar', href: '#services' },
 	{ name: 'Bizning mutaxassislarimiz', href: '#specialists' },
 	{ name: 'Aloqa', href: '#contact' },
 ]
+
+export const HEADER_LOGO = {
+	src: '/logo/headerLogo.svg',
+	width: 120,
+	height: 40,
+}
 
 export const serviceCards = [
 	{
@@ -61,5 +64,20 @@ export const specialists = [
 		firstName: 'Jordan',
 		lastName: 'Micheal',
 		specialization: 'Haematologiya',
+	},
+]
+
+export const blogs = [
+	{
+		title: 'Bizning klinikamizda qanday xizmatlar mavjud?',
+		description:
+			"Bizning klinikamizda keng qamrovli tibbiy xizmatlar mavjud. Bizning mutaxassislarimiz sizga yuqori sifatli tibbiy yordam ko'rsatishga tayyor.",
+		image: '/blog/img1.jpg',
+	},
+	{
+		title: "Sog'ligingizni saqlash uchun maslahatlar",
+		description:
+			"Sog'ligingizni saqlash uchun muntazam ravishda jismoniy faoliyat bilan shug'ullanish va to'g'ri ovqatlanish muhimdir.",
+		image: '/blog/img2.jpg',
 	},
 ]
