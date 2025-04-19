@@ -53,7 +53,7 @@ const ContactForm = () => {
 					☎️Telefon: ${values.phone}
 
 					📩Xabar:
-					 
+
 					${values.message}
 					`,
 				}),
@@ -77,16 +77,11 @@ const ContactForm = () => {
 					name='name'
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel className='mt-6 text-gray-700 text-lg leading-relaxed'>
+							<FormLabel className='mt-4 text-gray-700 text-lg leading-relaxed'>
 								Ismingiz
 							</FormLabel>
 							<FormControl>
-								<Input
-									placeholder='Mustafo'
-									disabled={isLoading}
-									{...field}
-									className='mt-4'
-								/>
+								<Input placeholder='Mustafo' disabled={isLoading} {...field} />
 							</FormControl>
 							<FormMessage />
 						</FormItem>
@@ -97,11 +92,11 @@ const ContactForm = () => {
 					name='phone'
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel className='mt-6 text-gray-700 text-lg leading-relaxed'>
-								Xabaringizni yozing
+							<FormLabel className='mt-4 text-gray-700 text-lg leading-relaxed'>
+								Telefon raqamingizni kiriting
 							</FormLabel>
 							<FormControl>
-								<Input disabled={isLoading} className='mt-4' {...field} />
+								<Input disabled={isLoading} {...field} />
 							</FormControl>
 							<FormMessage />
 						</FormItem>
