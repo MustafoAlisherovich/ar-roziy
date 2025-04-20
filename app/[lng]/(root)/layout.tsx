@@ -1,6 +1,6 @@
 import Footer from '@/components/shared/footer'
+import Navbar from '@/components/shared/navbar'
 import { ChildProps } from '@/types'
-import Navbar from '../../components/shared/navbar'
 
 const Layout = ({ children }: ChildProps) => {
 	return (

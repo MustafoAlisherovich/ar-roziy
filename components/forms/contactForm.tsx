@@ -1,9 +1,10 @@
 'use client'
 
+import { sendContactForm } from '@/actions/contact.actions'
 import { contactSchema } from '@/lib/validation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Send } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
@@ -21,6 +22,7 @@ import { Textarea } from '../ui/textarea'
 
 const ContactForm = () => {
 	const [isLoading, setIsLoading] = useState(false)
+	const [isPending, startTransition] = useTransition()
 
 	const form = useForm<z.infer<typeof contactSchema>>({
 		resolver: zodResolver(contactSchema),
@@ -34,38 +36,21 @@ const ContactForm = () => {
 	function onSubmit(values: z.infer<typeof contactSchema>) {
 		setIsLoading(true)
 
-		const telegramBotId = process.env.NEXT_PUBLIC_TELEGRAM_BOT_API
-		const telegramChatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID
-
-		const promise = fetch(
-			`https://api.telegram.org/bot${telegramBotId}/sendMessage`,
-			{
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-					'cache-control': 'no-cache',
-				},
-				body: JSON.stringify({
-					chat_id: telegramChatId,
-					text: `
-					👤Ism: ${values.name}
-
-					☎️Telefon: ${values.phone}
-
-					📩Xabar:
-
-					${values.message}
-					`,
-				}),
+		startTransition(async () => {
+			try {
+				const formData = new FormData()
+				formData.append('name', values.name)
+				formData.append('phone', values.phone)
+				formData.append('message', values.message)
+				await sendContactForm(formData)
+				toast.success("Xabaringiz jo'natildi")
+				form.reset()
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			} catch (error) {
+				toast.error('Xatolik yuz berdi')
+			} finally {
+				setIsLoading(false)
 			}
-		)
-			.then(() => form.reset())
-			.finally(() => setIsLoading(false))
-
-		toast.promise(promise, {
-			loading: "Xabaar jo'natilmoqda...",
-			success: "Xabaar jo'natildi!",
-			error: "Xabaar jo'natishda xatolik yuz berdi!",
 		})
 	}
 
@@ -128,8 +113,8 @@ const ContactForm = () => {
 					type='submit'
 					disabled={isLoading}
 				>
-					<span>Jo&apos;natish</span>
-					<Send className='w-4 h-4 ml-2' />
+					{isPending ? 'Yuborilmoqda...' : 'Yuborish'}
+					<Send size={'4'} />
 				</Button>
 			</form>
 		</Form>

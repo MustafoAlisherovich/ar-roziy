@@ -1,5 +1,5 @@
+import ServiceCard from '@/components/cards/service.card'
 import { serviceCards } from '@/constants'
-import ServiceCard from '../../../components/cards/service.card'
 
 const ServicesPage = () => {
 	return (
