@@ -16,7 +16,7 @@ const Footer = () => {
 					<div className='grid grid-cols-1 gap-12 md:grid-cols-4'>
 						<div className='flex flex-col space-y-3 md:col-span-2'>
 							<LogoFooter />
-							<p>{t('footerDescription')}</p>
+							<p>{t('description')}</p>
 						</div>
 
 						<div className='flex flex-col space-y-3'>
@@ -28,7 +28,7 @@ const Footer = () => {
 									<Link
 										key={nav.name}
 										href={nav.href}
-										className='py-2 px-3 hover:bg-sidebar-primary-foreground hover:text-primary'
+										className='hover:bg-sidebar-primary-foreground hover:text-primary font-medium transition-all'
 									>
 										{t(nav.name)}
 									</Link>
@@ -64,21 +64,25 @@ const Footer = () => {
 									<Mail size={20} />
 									<a
 										className='text-sm hover:text-primary hover:underline'
-										href='mailto:mustafoalisherovic@gmail.com'
+										href='mailto:arRoziy@info.com'
 									>
-										mustafoalisherovic@gmail.com
+										arRoziy@info.com
 									</a>
 								</div>
 								<div className='flex items-center space-x-3'>
 									<MapPin size={20} />
-									<span className='text-sm'>Kokand Farobiy-9 14</span>
+									<span className='text-sm'>
+										HW6H+CRJ, Kokand, Fergana Region, Uzbekistan
+									</span>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div className='pt-12'>
 						<Separator className='bg-gray-500' />
-						<p>© {new Date().getFullYear()}. Barcha huquqlar himoyalangan</p>
+						<p>
+							© {new Date().getFullYear()}. {t('copyright')}
+						</p>
 					</div>
 				</div>
 			</div>

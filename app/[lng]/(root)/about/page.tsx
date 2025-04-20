@@ -1,20 +1,23 @@
+'use client'
+
+import UseTranslate from '@/hooks/use-translate'
 import Image from 'next/image'
 
 const AboutPage = () => {
+	const t = UseTranslate()
+
 	return (
 		<>
-			<section className='py-16 px-4 bg-white'>
+			<section id='about' className='py-20 px-4 bg-white'>
 				<div className='max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10'>
 					{/* Text */}
+
 					<div className='w-full lg:w-1/2 text-center lg:text-left space-y-6'>
 						<h2 className='text-4xl md:text-5xl font-bold text-primary font-poppins'>
-							Biz nimalarga e&apos;tibor beramiz
+							{t('aboutTitle')}
 						</h2>
 						<p className='text-gray-700 text-lg leading-relaxed'>
-							Ar-roziy klinikasida har bir bemorning ehtiyoji e’tiborga olinadi.
-							Biz uchun bemorlarning sog‘lig‘i va ularning ishonchi muhimdir.
-							Davolash jarayonlarimiz nafaqat kasallikni bartaraf etishga, balki
-							hayot sifatini yaxshilashga qaratilgan.
+							{t('aboutDescription')}
 						</p>
 					</div>
 
@@ -47,13 +50,10 @@ const AboutPage = () => {
 					{/* Text */}
 					<div className='w-full lg:w-1/2 text-center lg:text-left space-y-6'>
 						<h2 className='text-4xl md:text-5xl font-bold text-primary font-poppins'>
-							Bizning maqsadimiz
+							{t('about2Title')}
 						</h2>
 						<p className='text-gray-700 text-lg leading-relaxed'>
-							Ar-Roziy klinikasida har bir bemorning ehtiyoji e’tiborga olinadi.
-							Biz uchun bemorlarning sog‘lig‘i va ularning ishonchi muhimdir.
-							Davolash jarayonlarimiz nafaqat kasallikni bartaraf etishga, balki
-							hayot sifatini yaxshilashga qaratilgan.
+							{t('about2Description')}
 						</p>
 					</div>
 				</div>

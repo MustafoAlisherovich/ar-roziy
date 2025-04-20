@@ -20,3 +20,36 @@ export interface IBlog {
 	description: string
 	image: string
 }
+
+export interface IService {
+	id: number
+	title: string
+	icon: string
+}
+
+export interface ICard {
+	title: string
+	icon: string
+}
+
+export interface IContact {
+	name: string
+	email: string
+	subject: string
+	message: string
+}
+
+export interface ITestimonial {
+	id: string
+	name: string
+	comment: string
+	image: {
+		url: string
+	} | null
+	localizations?: {
+		image: {
+			url: string
+		} | null
+	}[]
+	createdAt: string
+}

@@ -17,30 +17,50 @@ export const lngs = [
 	{ route: 'ru', label: 'Русский' },
 ]
 
-export const serviceCards = [
+export const service = [
 	{
+		id: 1,
 		title: 'INTERVENTSION Kardiojarrohlik',
 		icon: '/assets/heart-pulse.svg',
 	},
 	{
+		id: 2,
 		title: 'INTERVENTSION Kardiojarrohlik',
 		icon: '/assets/heart-pulse.svg',
 	},
 	{
+		id: 3,
 		title: 'INTERVENTSION Kardiojarrohlik',
 		icon: '/assets/heart-pulse.svg',
 	},
 	{
+		id: 4,
 		title: 'INTERVENTSION Kardiojarrohlik',
 		icon: '/assets/heart-pulse.svg',
 	},
 	{
+		id: 5,
 		title: 'INTERVENTSION Kardiojarrohlik',
 		icon: '/assets/heart-pulse.svg',
 	},
 ]
 
-export const specialists = [
+export const about = [
+	{
+		title: "Biz nimalarga e'tibor beramiz",
+		description:
+			'Ar-roziy klinikasida har bir bemorning ehtiyoji e’tiborga olinadi. Biz uchun bemorlarning sog‘lig‘i va ularning ishonchi muhimdir. Davolash jarayonlarimiz nafaqat kasallikni bartaraf etishga, balki hayot sifatini yaxshilashga qaratilgan.',
+		image: '/assets/img1.jpg',
+	},
+	{
+		title: 'Bizning maqsadimiz',
+		description:
+			'Ar-Roziy klinikasida har bir bemorning ehtiyoji e’tiborga olinadi. Biz uchun bemorlarning sog‘lig‘i va ularning ishonchi muhimdir. Davolash jarayonlarimiz nafaqat kasallikni bartaraf etishga, balki hayot sifatini yaxshilashga qaratilgan.',
+		image: '/assets/img2.jpg',
+	},
+]
+
+export const doctors = [
 	{
 		image: '/doctors/img1.jpg',
 		firstName: 'Ivan',
@@ -85,5 +105,24 @@ export const blogs = [
 		description:
 			"Sog'ligingizni saqlash uchun muntazam ravishda jismoniy faoliyat bilan shug'ullanish va to'g'ri ovqatlanish muhimdir.",
 		image: '/blog/img2.jpg',
+	},
+]
+
+export const testimonials = [
+	{
+		name: 'Ahmadjon Karimov',
+		quote:
+			'Bu klinika xizmatlaridan juda mamnunman. Doktorlar professional va mehmondo‘st!',
+		image: 'Bemor',
+	},
+	{
+		name: 'Zarina Xudoyberdiyeva',
+		quote: 'Shunchaki ajoyib! Tezkor va sifatli xizmat uchun rahmat.',
+		image: 'Mijoz',
+	},
+	{
+		name: 'Rustam Abduganiyev',
+		quote: 'Har doim shu yerga murojaat qilaman. Ishonchli va sifatli.',
+		image: 'Doimiy mijoz',
 	},
 ]

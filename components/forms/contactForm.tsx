@@ -57,69 +57,78 @@ const ContactForm = () => {
 	}
 
 	return (
-		<Form {...form}>
-			<form onSubmit={form.handleSubmit(onSubmit)} className='w-full'>
-				<FormField
-					control={form.control}
-					name='name'
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel className='mt-4 text-gray-700 text-lg leading-relaxed'>
-								Ismingiz
-							</FormLabel>
-							<FormControl>
-								<Input placeholder='Mustafo' disabled={isLoading} {...field} />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-				<FormField
-					control={form.control}
-					name='phone'
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel className='mt-4 text-gray-700 text-lg leading-relaxed'>
-								Telefon raqamingizni kiriting
-							</FormLabel>
-							<FormControl>
-								<Input disabled={isLoading} {...field} />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-				<FormField
-					control={form.control}
-					name='message'
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel className='mt-6 text-gray-700 text-lg leading-relaxed'>
-								Xabaringizni yozing
-							</FormLabel>
-							<FormControl>
-								<Textarea
-									disabled={isLoading}
-									placeholder='Qanday yordam bera olishimiz mumkin?'
-									className='resize-none h-32'
-									{...field}
-								/>
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-				<Button
-					className='w-fit mt-4'
-					size={'lg'}
-					type='submit'
-					disabled={isLoading}
-				>
-					{isPending ? t('sending') : t('send')}
-					<Send size={'4'} />
-				</Button>
-			</form>
-		</Form>
+		<>
+			<h1 className='text-3xl font-poppins text-primary font-bold mb-2'>
+				{t('form')}
+			</h1>
+			<Form {...form}>
+				<form onSubmit={form.handleSubmit(onSubmit)} className='w-full'>
+					<FormField
+						control={form.control}
+						name='name'
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel className='mt-4 text-gray-700 text-lg leading-relaxed'>
+									{t('name')}
+								</FormLabel>
+								<FormControl>
+									<Input
+										placeholder='Mustafo'
+										disabled={isLoading}
+										{...field}
+									/>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name='phone'
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel className='mt-4 text-gray-700 text-lg leading-relaxed'>
+									{t('phone')}
+								</FormLabel>
+								<FormControl>
+									<Input disabled={isLoading} {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name='message'
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel className='mt-6 text-gray-700 text-lg leading-relaxed'>
+									{t('message')}
+								</FormLabel>
+								<FormControl>
+									<Textarea
+										disabled={isLoading}
+										placeholder={t('messagePlaceholder')}
+										className='resize-none h-32'
+										{...field}
+									/>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<Button
+						className='w-fit mt-4 cursor-pointer'
+						size={'lg'}
+						type='submit'
+						disabled={isLoading}
+					>
+						{isPending ? t('sending') : t('send')}
+						<Send size={'4'} />
+					</Button>
+				</form>
+			</Form>
+		</>
 	)
 }
 
