@@ -1,21 +1,25 @@
 import Title from '@/components/shared/title'
+import { translation } from '@/i18n/server'
+import { LngParams } from '@/types'
 import AboutPage from './about/page'
 import ContactPage from './contact/page'
 import DoctorsPage from './doctors/page'
 import HomePage from './home/page'
 import ServicesPage from './services/page'
 
-const Page = () => {
+const Page = async ({ params: { lng } }: LngParams) => {
+	const { t } = await translation(lng)
+
 	return (
 		<>
 			<HomePage />
-			<Title title='biz haqimizda' />
+			<Title title={t('navlink2')} />
 			<AboutPage />
-			<Title title='bizning xizmatlarimiz' />
+			<Title title={t('navlink3')} />
 			<ServicesPage />
-			<Title title='bizning mutaxassislarimiz' />
+			<Title title={t('navlink4')} />
 			<DoctorsPage />
-			<Title title='aloqa' />
+			<Title title={t('navlink5')} />
 			<ContactPage />
 		</>
 	)

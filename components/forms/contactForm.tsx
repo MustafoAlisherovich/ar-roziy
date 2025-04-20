@@ -1,6 +1,7 @@
 'use client'
 
 import { sendContactForm } from '@/actions/contact.actions'
+import UseTranslate from '@/hooks/use-translate'
 import { contactSchema } from '@/lib/validation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Send } from 'lucide-react'
@@ -23,6 +24,7 @@ import { Textarea } from '../ui/textarea'
 const ContactForm = () => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [isPending, startTransition] = useTransition()
+	const t = UseTranslate()
 
 	const form = useForm<z.infer<typeof contactSchema>>({
 		resolver: zodResolver(contactSchema),
@@ -113,7 +115,7 @@ const ContactForm = () => {
 					type='submit'
 					disabled={isLoading}
 				>
-					{isPending ? 'Yuborilmoqda...' : 'Yuborish'}
+					{isPending ? t('sending') : t('send')}
 					<Send size={'4'} />
 				</Button>
 			</form>

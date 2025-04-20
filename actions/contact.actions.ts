@@ -24,11 +24,19 @@ export async function sendContactForm(formData: FormData) {
 	await transporter.sendMail({
 		from: `"Sayt Kontakt" <${process.env.EMAIL_USER}>`,
 		to: process.env.EMAIL_RECEIVER!,
-		subject: 'Yangi xabar Ar-Roziy Clinic saytida',
+		subject: '🆕 Yangi xabar - Ar-Roziy Clinic saytidan',
 		html: `
-      <p><strong>Ismi:</strong> ${name}</p>
-      <p><strong>Telefon:</strong> ${phone}</p>
-      <p><strong>Xabar:</strong> ${message}</p>
-    `,
+			<div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+				<h2 style="color: #007BFF;">📬 Yangi xabar</h2>
+				<p><strong>👤 Ismi:</strong> ${name}</p>
+				<p><strong>📞 Telefon:</strong> ${phone}</p>
+				<p><strong>💬 Xabar:</strong></p>
+				<div style="background-color: #f9f9f9; padding: 10px; font-size: 20px; border-left: 4px solid #007BFF; margin-top: 5px;">
+					${message}
+				</div>
+				<hr style="margin-top: 20px;"/>
+				<p style="font-size: 12px; color: #888;">Bu xabar Ar-Roziy Clinic saytining kontakt formasi orqali yuborildi.</p>
+			</div>
+		`,
 	})
 }

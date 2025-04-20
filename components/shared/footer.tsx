@@ -1,10 +1,14 @@
+'use client'
+
 import { NavLinks } from '@/constants'
+import UseTranslate from '@/hooks/use-translate'
 import { Mail, MapPin, PhoneCall } from 'lucide-react'
 import Link from 'next/link'
 import { Separator } from '../ui/separator'
 import LogoFooter from './logoFooter'
 
 const Footer = () => {
+	const t = UseTranslate()
 	return (
 		<>
 			<div className=' pt-12 mt-20 bg-secondary max-md:px-4'>
@@ -12,18 +16,13 @@ const Footer = () => {
 					<div className='grid grid-cols-1 gap-12 md:grid-cols-4'>
 						<div className='flex flex-col space-y-3 md:col-span-2'>
 							<LogoFooter />
-							<p>
-								Sog&apos;lig&apos;ingiz va farovonligimiz bizning ustuvor
-								vazifamiz. Ishonchli xususiy amaliyot sifatida biz zamonaviy va
-								qulay muhitda shaxsiylashtirilgan, shafqatli yordamni taklif
-								etamiz. Bizning yuqori malakali tibbiy mutaxassislar jamoasi
-								sizning noyob ehtiyojlaringizga moslashtirilgan eng yaxshi
-								davolanishni ta&apos;minlashga intiladi.
-							</p>
+							<p>{t('footerDescription')}</p>
 						</div>
 
 						<div className='flex flex-col space-y-3'>
-							<h1 className='font-semibold font-poppins text-3xl'>Sahifalar</h1>
+							<h1 className='font-semibold text-primary font-poppins text-3xl'>
+								{t('pages')}
+							</h1>
 							<div className='flex flex-col space-y-3 pt-6'>
 								{NavLinks.map(nav => (
 									<Link
@@ -31,14 +30,16 @@ const Footer = () => {
 										href={nav.href}
 										className='py-2 px-3 hover:bg-sidebar-primary-foreground hover:text-primary'
 									>
-										{nav.name}
+										{t(nav.name)}
 									</Link>
 								))}
 							</div>
 						</div>
 
 						<div className='flex flex-col space-y-3'>
-							<h1 className='font-semibold text-3xl font-poppins'>Aloqa</h1>
+							<h1 className='font-semibold text-3xl font-poppins text-primary'>
+								{t('navlink5')}
+							</h1>
 							<div className='flex flex-col space-y-3 pt-6'>
 								<div className='flex items-center space-x-3'>
 									<PhoneCall size={20} />

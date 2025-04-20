@@ -1,11 +1,16 @@
+'use client'
+
 import Logo from '@/components/shared/logo'
 import { NavLinks } from '@/constants'
+import UseTranslate from '@/hooks/use-translate'
 import { FacebookIcon, InstagramIcon, Phone } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '../ui/button'
 import LanguageDropdown from './language-dropdown'
 
 const Navbar = () => {
+	const t = UseTranslate()
+
 	return (
 		<header className='shadow-md bg-white'>
 			<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -23,7 +28,7 @@ const Navbar = () => {
 								href={nav.href}
 								className='py-2 px-3 hover:bg-sidebar-primary-foreground hover:text-primary'
 							>
-								{nav.name}
+								{t(nav.name)}
 							</Link>
 						))}
 					</nav>

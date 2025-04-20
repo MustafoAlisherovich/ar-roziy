@@ -4,6 +4,10 @@ export interface ChildProps {
 	children: React.ReactNode
 }
 
+export interface LngParams {
+	params: { lng: string }
+}
+
 export interface IDoctors {
 	image: string
 	firstName: string

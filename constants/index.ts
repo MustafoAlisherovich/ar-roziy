@@ -1,9 +1,9 @@
 export const NavLinks = [
-	{ name: 'Bosh sahifa', href: '/' },
-	{ name: 'Biz haqimizda', href: '#about' },
-	{ name: 'Xizmatlar', href: '#services' },
-	{ name: 'Bizning mutaxassislarimiz', href: '#specialists' },
-	{ name: 'Aloqa', href: '#contact' },
+	{ name: 'navlink1', href: '/' },
+	{ name: 'navlink2', href: '#about' },
+	{ name: 'navlink3', href: '#services' },
+	{ name: 'navlink4', href: '#specialists' },
+	{ name: 'navlink5', href: '#contact' },
 ]
 
 export const HEADER_LOGO = {
@@ -11,6 +11,11 @@ export const HEADER_LOGO = {
 	width: 120,
 	height: 40,
 }
+
+export const lngs = [
+	{ route: 'uz', label: "O'zbekcha" },
+	{ route: 'ru', label: 'Русский' },
+]
 
 export const serviceCards = [
 	{
