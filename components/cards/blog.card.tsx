@@ -1,5 +1,9 @@
-import { cn } from '@/lib/utils'
+'use client'
+
+import UseTranslate from '@/hooks/use-translate'
+import { cn, getReadingTime } from '@/lib/utils'
 import { IBlog } from '@/types'
+import { format } from 'date-fns'
 import { CalendarDays, Clock, Minus } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,9 +13,11 @@ interface Props extends IBlog {
 }
 
 const BlogCard = (blog: Props) => {
+	const t = UseTranslate()
+
 	return (
 		<Link
-			href={'/'}
+			href={`/blogs/${blog.slug}`}
 			className={cn(
 				'grid gap-4 group',
 				blog.isVertical ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'
@@ -21,7 +27,7 @@ const BlogCard = (blog: Props) => {
 				<Image
 					width={650}
 					height={335}
-					src={blog.image}
+					src={blog.image.url}
 					alt={blog.title}
 					className='rounded-md w-full h-[335px] object-cover transition-transform duration-300 group-hover:-translate-y-2'
 				/>
@@ -31,12 +37,14 @@ const BlogCard = (blog: Props) => {
 				<div className='flex items-center gap-4'>
 					<div className='flex items-center gap-2'>
 						<CalendarDays className='w-5 h-5' />
-						<p>2025-08-19</p>
+						<p>{format(new Date(blog.createdAt), 'MMM dd yyyy')}</p>
 					</div>
 					<Minus />
 					<div className='flex items-center gap-2'>
 						<Clock className='w-5 h-5' />
-						<p>01 min read</p>
+						<p>
+							{getReadingTime(blog.content.html)} {t('read')}
+						</p>
 					</div>
 				</div>
 

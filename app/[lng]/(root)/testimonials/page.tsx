@@ -26,7 +26,7 @@ const TestimonialsPage = ({ testimonials }: Props) => {
 	const testimonial = testimonials[index]
 
 	return (
-		<div className='w-full max-w-xl mx-auto text-center mt-12 px-4'>
+		<div className='w-full max-w-3xl mx-auto text-center mt-12 px-4'>
 			<Card className='bg-background/80 backdrop-blur-sm shadow-lg border border-muted p-8 transition hover:shadow-2xl'>
 				<CardContent className='flex flex-col items-center gap-6'>
 					{testimonial.image?.url ? (
@@ -39,11 +39,11 @@ const TestimonialsPage = ({ testimonials }: Props) => {
 						/>
 					) : (
 						<div className='w-[100px] h-[100px] flex items-center justify-center rounded-2xl bg-muted'>
-							<User className='w-10 h-10 text-muted-foreground ' />
+							<User className='w-10 h-10 text-muted-foreground' />
 						</div>
 					)}
 
-					<p className='text-base text-muted-foreground italic leading-relaxed max-w-md'>
+					<p className='text-base text-muted-foreground italic leading-relaxed max-w-2xl'>
 						“{testimonial.comment}”
 					</p>
 					<h3 className='text-lg font-semibold text-foreground'>

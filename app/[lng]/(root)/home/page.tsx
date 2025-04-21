@@ -25,7 +25,7 @@ const HomePage = () => {
 				</p>
 
 				<div className='gap-4 mt-4'>
-					<Link href={'/blogs'}>
+					<Link href={'#blogs'}>
 						<Button
 							size={'lg'}
 							className='font-semibold shadow hover:shadow-md cursor-pointer'

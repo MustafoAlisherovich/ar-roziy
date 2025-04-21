@@ -8,7 +8,7 @@ const AboutPage = () => {
 
 	return (
 		<>
-			<section id='about' className='py-20 px-4 bg-white'>
+			<section id='about' className='py-12 px-4 bg-white'>
 				<div className='max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10'>
 					{/* Text */}
 

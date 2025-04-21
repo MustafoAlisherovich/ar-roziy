@@ -3,7 +3,7 @@ import Map from '@/components/map/map'
 
 const ContactPage = async () => {
 	return (
-		<section id='contact' className='py-20'>
+		<section id='contact' className='py-12'>
 			<div className='max-w-6xl mx-auto'>
 				<div className='grid grid-cols-2 max-md:grid-cols-1 gap-6 mt-6'>
 					<div className='flex flex-col'>
