@@ -12,7 +12,6 @@ export interface LngParams {
 }
 
 export interface IDoctors {
-	id: string
 	image: { url: string }
 	name: string
 	direction: string

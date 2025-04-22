@@ -7,7 +7,6 @@ export const getDoctors = async (locale: string) => {
 	const query = gql`
 		query GetTestimonials($locale: [Locale!]!) {
 			doctors(locales: $locale) {
-				id
 				name
 				direction
 				image {
