@@ -1,5 +1,6 @@
 import { IBlog } from '@/types'
 import { gql, request } from 'graphql-request'
+import { cache } from 'react'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!
 
@@ -28,7 +29,7 @@ export const getBlogs = async (locale: string) => {
 	return blogs
 }
 
-export const getDetailedBlog = async (slug: string, locale: string) => {
+export const getDetailedBlog = cache(async (slug: string, locale: string) => {
 	const query = gql`
 		query GetDetailedBlog($slug: String!, $locale: [Locale!]!) {
 			blog(locales: $locale, where: { slug: $slug }) {
@@ -50,4 +51,4 @@ export const getDetailedBlog = async (slug: string, locale: string) => {
 	})
 
 	return blog
-}
+})

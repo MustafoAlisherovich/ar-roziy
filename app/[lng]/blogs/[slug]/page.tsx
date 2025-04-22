@@ -6,7 +6,25 @@ import { LngParams } from '@/types'
 import { format } from 'date-fns'
 import parse from 'html-react-parser'
 import { CalendarDays, Clock, Minus } from 'lucide-react'
+import { Metadata } from 'next'
 import Image from 'next/image'
+
+export async function generateMetadata({
+	params,
+}: LngParams): Promise<Metadata> {
+	const { lng, slug } = params
+	const blog = await getDetailedBlog(slug, lng)
+
+	return {
+		title: blog.title,
+		description: blog.description,
+		openGraph: {
+			images: blog.image.url,
+			title: blog.title,
+			description: blog.description,
+		},
+	}
+}
 
 const SlugPage = async ({ params }: LngParams) => {
 	const { slug, lng } = params

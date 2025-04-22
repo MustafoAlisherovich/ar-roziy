@@ -1,6 +1,22 @@
 import { getDetailedService } from '@/service/services.service'
 import { LngParams } from '@/types'
+import { Metadata } from 'next'
 import Image from 'next/image'
+
+export async function generateMetadata({
+	params,
+}: LngParams): Promise<Metadata> {
+	const { lng, slug } = params
+	const blog = await getDetailedService(lng, slug)
+
+	return {
+		title: blog.title,
+		openGraph: {
+			images: blog.image.url,
+			title: blog.title,
+		},
+	}
+}
 
 const SlugPage = async ({ params }: LngParams) => {
 	const { slug, lng } = params
