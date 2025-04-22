@@ -2,7 +2,6 @@ import ShareButtons from '@/components/shared/share-button'
 import { translation } from '@/i18n/server'
 import { getReadingTime } from '@/lib/utils'
 import { getDetailedBlog } from '@/service/blog.service'
-import { LngParams } from '@/types'
 import { format } from 'date-fns'
 import parse from 'html-react-parser'
 import { CalendarDays, Clock, Minus } from 'lucide-react'
@@ -11,7 +10,9 @@ import Image from 'next/image'
 
 export async function generateMetadata({
 	params,
-}: LngParams): Promise<Metadata> {
+}: {
+	params: { lng: string; slug: string }
+}): Promise<Metadata> {
 	const { lng, slug } = params
 	const blog = await getDetailedBlog(slug, lng)
 
@@ -26,7 +27,11 @@ export async function generateMetadata({
 	}
 }
 
-const SlugPage = async ({ params }: LngParams) => {
+const SlugPage = async ({
+	params,
+}: {
+	params: { lng: string; slug: string }
+}) => {
 	const { slug, lng } = params
 
 	const blog = await getDetailedBlog(slug, lng)

@@ -1,11 +1,12 @@
 import { getDetailedService } from '@/service/services.service'
-import { LngParams } from '@/types'
 import { Metadata } from 'next'
 import Image from 'next/image'
 
 export async function generateMetadata({
 	params,
-}: LngParams): Promise<Metadata> {
+}: {
+	params: { lng: string; slug: string }
+}): Promise<Metadata> {
 	const { lng, slug } = params
 	const blog = await getDetailedService(lng, slug)
 
@@ -18,7 +19,11 @@ export async function generateMetadata({
 	}
 }
 
-const SlugPage = async ({ params }: LngParams) => {
+const SlugPage = async ({
+	params,
+}: {
+	params: { lng: string; slug: string }
+}) => {
 	const { slug, lng } = params
 
 	const service = await getDetailedService(lng, slug)
