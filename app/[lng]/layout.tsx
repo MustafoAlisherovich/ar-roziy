@@ -49,7 +49,8 @@ interface Props extends ChildProps {
 	params: { lng: string }
 }
 
-export default function RootLayout({ children, params: { lng } }: Props) {
+export default async function RootLayout({ children, params }: Props) {
+	const { lng } = params
 	return (
 		<html lang={lng} dir={dir(lng)}>
 			<body className={`${inter.variable} ${poppins.variable} antialiased`}>
