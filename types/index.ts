@@ -30,7 +30,7 @@ export interface IBlog {
 export interface IService {
 	slug: string
 	title: string
-	icon: { url: string; width: number; height: number }
+	icon: { url: string }
 	image: { url: string }
 	content: { html: string }
 }

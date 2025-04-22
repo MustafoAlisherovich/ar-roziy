@@ -9,26 +9,27 @@ const HomePage = () => {
 
 	return (
 		<section
-			className='relative bg-cover bg-center bg-no-repeat h-[80vh]'
-			style={{ backgroundImage: "url('/assets/img3.jpg')" }}
+			id='home'
+			className='relative bg-cover bg-center bg-no-repeat h-[80vh] md:h-[85vh] lg:h-screen flex items-center justify-center pt-20' //  pt-20 o'zgarish
+			style={{ backgroundImage: "url('/assets/img1.jpg')" }}
 		>
-			{/* Overlay (optional, istasang olib tashlashing mumkin) */}
-			<div className='absolute inset-0'></div>
+			{/* Optional overlay */}
+			<div className='absolute inset-0 bg-opacity-30'></div>
 
-			<div className='relative z-10 flex flex-col items-center justify-center text-center px-4 py-24 max-w-4xl mx-auto space-y-6'>
-				<h2 className='text-[#4CA597] text-5xl font-bold tracking-wide'>
+			<div className='relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto space-y-6'>
+				<h1 className='text-white text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight drop-shadow-lg'>
 					Abu Bakr Ar Roziy Med Servis
-				</h2>
+				</h1>
 
-				<p className='text-lg text-gray-800 leading-relaxed'>
+				<p className='text-white text-lg sm:text-xl leading-relaxed drop-shadow-md'>
 					{t('description')}
 				</p>
 
-				<div className='gap-4 mt-4'>
+				<div className='flex justify-center mt-6'>
 					<Link href={'#blogs'}>
 						<Button
-							size={'lg'}
-							className='font-semibold shadow hover:shadow-md cursor-pointer'
+							size='lg'
+							className='font-semibold shadow hover:shadow-lg bg-primary text-white hover:bg-primary/90 transition'
 						>
 							{t('ourBlogs')}
 						</Button>

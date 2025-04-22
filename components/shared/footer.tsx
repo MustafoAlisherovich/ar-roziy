@@ -46,16 +46,23 @@ const Footer = () => {
 									<div className='flex flex-col space-y-1'>
 										<a
 											className='text-sm hover:text-primary hover:underline'
-											href='tel:+998901234567'
+											href='tel:+998994070301'
 										>
-											+998 (90) 123-45-67
+											+998 (99) 407-03-01
 										</a>
 										<Separator className='bg-gray-500' />
 										<a
-											href='tel:+998911554995'
+											href='tel:+998954020301'
 											className='text-sm hover:text-primary hover:underline'
 										>
-											+998 (90) 155-49-95
+											+998 (95) 402-03-01
+										</a>
+										<Separator className='bg-gray-500' />
+										<a
+											href='tel:+998906280301'
+											className='text-sm hover:text-primary hover:underline'
+										>
+											+998 (90) 628-03-01
 										</a>
 									</div>
 								</div>
@@ -64,15 +71,15 @@ const Footer = () => {
 									<Mail size={20} />
 									<a
 										className='text-sm hover:text-primary hover:underline'
-										href='mailto:arRoziy@info.com'
+										href='mailto:abubakr.arroziy.clinic@gmail.com'
 									>
-										arRoziy@info.com
+										abubakr.arroziy.clinic@gmail.com
 									</a>
 								</div>
 								<div className='flex items-center space-x-3'>
 									<MapPin size={20} />
 									<span className='text-sm'>
-										HW6H+CRJ, Kokand, Fergana Region, Uzbekistan
+										Qoʻqon, Chodaklik aholi punkti, 1
 									</span>
 								</div>
 							</div>

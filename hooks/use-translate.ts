@@ -3,11 +3,11 @@
 import { useTranslation } from '@/i18n/client'
 import { useParams } from 'next/navigation'
 
-const UseTranslate = () => {
+const useTranslate = () => {
 	const { lng } = useParams()
 	const { t } = useTranslation(lng as string)
 
 	return t
 }
 
-export default UseTranslate
+export default useTranslate

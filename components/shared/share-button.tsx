@@ -8,6 +8,7 @@ import { toast } from 'sonner'
 interface Props {
 	slug: string
 	title: string
+	lng: string
 }
 
 export default function ShareButtons({ slug, title }: Props) {

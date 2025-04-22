@@ -1,6 +1,6 @@
 'use client'
 
-import UseTranslate from '@/hooks/use-translate'
+import useTranslate from '@/hooks/use-translate'
 import { cn, getReadingTime } from '@/lib/utils'
 import { IBlog } from '@/types'
 import { format } from 'date-fns'
@@ -13,7 +13,7 @@ interface Props extends IBlog {
 }
 
 const BlogCard = (blog: Props) => {
-	const t = UseTranslate()
+	const t = useTranslate()
 
 	return (
 		<Link
