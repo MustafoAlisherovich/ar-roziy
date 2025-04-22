@@ -8,7 +8,9 @@ import { CalendarDays, Clock, Minus } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+	params,
+}: PageProps): Promise<Metadata> {
 	const { lng, slug } = params
 	const blog = await getDetailedBlog(slug, lng)
 
@@ -23,14 +25,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	}
 }
 
-interface Props {
+interface PageProps {
 	params: {
 		lng: string
 		slug: string
 	}
 }
 
-const SlugPage = async ({ params }: Props) => {
+const SlugPage = async ({ params }: PageProps) => {
 	const { lng, slug } = params
 
 	const blog = await getDetailedBlog(slug, lng)
