@@ -70,8 +70,6 @@ const DoctorsPage = ({ doctors }: Props) => {
 								</CarouselItem>
 							))}
 						</CarouselContent>
-
-						{/* Arrow navigation – faqat sm: dan boshlab ko‘rsatiladi */}
 						<div className='hidden sm:block'>
 							<CarouselPrevious />
 							<CarouselNext />
