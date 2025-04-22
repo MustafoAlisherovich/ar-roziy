@@ -10,12 +10,13 @@ import {
 import useTranslate from '@/hooks/use-translate'
 import { IDoctors } from '@/types'
 import Image from 'next/image'
+import { FC } from 'react'
 
 interface Props {
 	doctors: IDoctors[]
 }
 
-const DoctorsPage = ({ doctors }: Props) => {
+const DoctorsPage: FC<Props> = ({ doctors }) => {
 	const t = useTranslate()
 
 	return (
