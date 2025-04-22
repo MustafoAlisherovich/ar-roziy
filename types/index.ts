@@ -43,16 +43,8 @@ export interface IContact {
 }
 
 export interface ITestimonial {
-	id: string
 	name: string
 	comment: string
-	image: {
-		url: string
-	} | null
-	localizations?: {
-		image: {
-			url: string
-		} | null
-	}[]
+	image: { url: string }
 	createdAt: string
 }

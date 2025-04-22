@@ -7,7 +7,6 @@ export const getTestimonials = async (locale: string) => {
 	const query = gql`
 		query GetTestimonials($locale: [Locale!]!) {
 			testimonials(locales: $locale) {
-				id
 				name
 				comment
 				createdAt
