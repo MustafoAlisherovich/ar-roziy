@@ -11,7 +11,9 @@ import DoctorsPage from './doctors/page'
 import HomePage from './home/page'
 import TestimonialsPage from './testimonials/page'
 
-const Page = async ({ params: { lng } }: LngParams) => {
+const Page = async ({ params }: LngParams) => {
+	const { lng } = await params
+
 	const testimonials = await getTestimonials(lng)
 	const doctors = await getDoctors(lng)
 	const blog = await getBlogs(lng)
