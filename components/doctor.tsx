@@ -16,7 +16,7 @@ interface Props {
 	doctors: IDoctors[]
 }
 
-const DoctorsPage: FC<Props> = ({ doctors }) => {
+const Doctor: FC<Props> = ({ doctors }) => {
 	const t = useTranslate()
 
 	return (
@@ -82,4 +82,4 @@ const DoctorsPage: FC<Props> = ({ doctors }) => {
 	)
 }
 
-export default DoctorsPage
+export default Doctor

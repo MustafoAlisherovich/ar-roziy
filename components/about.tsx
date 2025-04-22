@@ -3,7 +3,7 @@
 import useTranslate from '@/hooks/use-translate'
 import Image from 'next/image'
 
-const AboutPage = () => {
+const About = () => {
 	const t = useTranslate()
 
 	return (
@@ -67,4 +67,4 @@ const AboutPage = () => {
 	)
 }
 
-export default AboutPage
+export default About

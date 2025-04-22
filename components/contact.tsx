@@ -4,7 +4,7 @@ import ContactForm from '@/components/forms/contactForm'
 import Map from '@/components/map/map'
 import useTranslate from '@/hooks/use-translate'
 
-const ContactPage = () => {
+const Contact = () => {
 	const t = useTranslate()
 
 	return (
@@ -29,4 +29,4 @@ const ContactPage = () => {
 	)
 }
 
-export default ContactPage
+export default Contact

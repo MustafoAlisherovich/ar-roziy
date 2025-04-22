@@ -1,15 +1,15 @@
+import About from '@/components/about'
+import Contact from '@/components/contact'
+import Doctor from '@/components/doctor'
+import HeroPage from '@/components/hero'
+import Testimonial from '@/components/testimonal'
 import { getBlogs } from '@/service/blog.service'
 import { getDoctors } from '@/service/doctors.service'
 import { getServices } from '@/service/services.service'
 import { getTestimonials } from '@/service/testimonial.service'
 import { LngParams } from '@/types'
-import BlogsPage from '../blogs/page'
-import ServicesPage from '../services/page'
-import AboutPage from './about/page'
-import ContactPage from './contact/page'
-import DoctorsPage from './doctors/page'
-import HomePage from './home/page'
-import TestimonialsPage from './testimonials/page'
+import BlogsPage from './blogs/page'
+import ServicesPage from './services/page'
 
 const Page = async ({ params }: LngParams) => {
 	const { lng } = await params
@@ -21,13 +21,13 @@ const Page = async ({ params }: LngParams) => {
 
 	return (
 		<>
-			<HomePage />
-			<AboutPage />
+			<HeroPage />
+			<About />
 			<ServicesPage service={service} />
-			<DoctorsPage doctors={doctors} />
-			<TestimonialsPage testimonials={testimonials} />
+			<Doctor doctors={doctors} />
+			<Testimonial testimonials={testimonials} />
 			<BlogsPage blog={blog} />
-			<ContactPage />
+			<Contact />
 		</>
 	)
 }

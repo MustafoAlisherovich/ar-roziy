@@ -38,7 +38,7 @@ const Navbar = () => {
 					<div className='hidden md:flex items-center space-x-4'>
 						<LanguageDropdown />
 						<Button size='icon' variant='ghost'>
-							<a href='tel:+998901234567'>
+							<a href='tel:+998994070301'>
 								<Phone />
 							</a>
 						</Button>

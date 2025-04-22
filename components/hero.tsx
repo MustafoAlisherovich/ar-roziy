@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import UseTranslate from '@/hooks/use-translate'
 import Link from 'next/link'
 
-const HomePage = () => {
+const HeroPage = () => {
 	const t = UseTranslate()
 
 	return (
@@ -40,4 +40,4 @@ const HomePage = () => {
 	)
 }
 
-export default HomePage
+export default HeroPage

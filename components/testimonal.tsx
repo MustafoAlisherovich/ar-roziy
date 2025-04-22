@@ -13,7 +13,7 @@ interface Props {
 	testimonials: ITestimonial[]
 }
 
-const TestimonialsPage = ({ testimonials }: Props) => {
+const Testimonial = ({ testimonials }: Props) => {
 	const t = useTranslate()
 	const [index, setIndex] = useState(0)
 
@@ -87,4 +87,4 @@ const TestimonialsPage = ({ testimonials }: Props) => {
 	)
 }
 
-export default TestimonialsPage
+export default Testimonial
