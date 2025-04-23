@@ -5,22 +5,22 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
-// Define params inline
-interface Params {
-	lng: string
-	slug: string
+interface PageProps {
+	params: {
+		lng: string
+		slug: string
+	}
 }
 
+// SEO metadata
 export async function generateMetadata({
 	params,
-}: {
-	params: Params
-}): Promise<Metadata> {
+}: PageProps): Promise<Metadata | null> {
 	const { lng, slug } = params
 	const service = await getDetailedService(slug, lng)
 
 	if (!service) {
-		return notFound()
+		return null // notFound() emas!
 	}
 
 	return {
@@ -32,7 +32,8 @@ export async function generateMetadata({
 	}
 }
 
-export default async function ServiceSlugPage({ params }: { params: Params }) {
+// Page rendering
+export default async function ServiceSlugPage({ params }: PageProps) {
 	const { lng, slug } = params
 	const service = await getDetailedService(slug, lng)
 
@@ -56,7 +57,9 @@ export default async function ServiceSlugPage({ params }: { params: Params }) {
 
 			<div
 				className='prose max-w-none'
-				dangerouslySetInnerHTML={{ __html: service.content.html }}
+				dangerouslySetInnerHTML={{
+					__html: service.content?.html || '',
+				}}
 			/>
 
 			<div className='mt-12 border-t pt-6 text-center text-sm text-muted-foreground'>

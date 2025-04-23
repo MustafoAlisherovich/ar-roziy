@@ -11,22 +11,24 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
-// Params shape for this route
-interface Params {
-	lng: string
-	slug: string
+// Params type
+interface PageProps {
+	params: {
+		lng: string
+		slug: string
+	}
 }
 
 // Generate metadata
 export async function generateMetadata({
 	params,
-}: {
-	params: Params
-}): Promise<Metadata> {
+}: PageProps): Promise<Metadata | null> {
 	const { lng, slug } = params
 	const blog = await getDetailedBlog(slug, lng)
 
-	if (!blog) notFound()
+	if (!blog) {
+		return null
+	}
 
 	return {
 		title: blog.title,
@@ -40,7 +42,7 @@ export async function generateMetadata({
 }
 
 // Default export page component
-export default async function BlogSlugPage({ params }: { params: Params }) {
+export default async function BlogSlugPage({ params }: PageProps) {
 	const { lng, slug } = params
 	const blog = await getDetailedBlog(slug, lng)
 	const { t } = await translation(lng)
@@ -57,7 +59,7 @@ export default async function BlogSlugPage({ params }: { params: Params }) {
 				<div className='flex items-center gap-2'>
 					<Clock className='w-5 h-5' />
 					<p>
-						{getReadingTime(blog.content.html)} {t('read')}
+						{getReadingTime(blog.content?.html || '')} {t('read')}
 					</p>
 				</div>
 				<Minus />
@@ -87,7 +89,7 @@ export default async function BlogSlugPage({ params }: { params: Params }) {
 					</div>
 				</div>
 				<div className='flex-1 prose max-w-none'>
-					{parse(blog.content.html)}
+					{blog.content?.html ? parse(blog.content.html) : null}
 				</div>
 			</div>
 
