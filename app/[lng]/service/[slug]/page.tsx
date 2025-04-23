@@ -9,15 +9,19 @@ interface PageProps {
 	}
 }
 
-export async function generateMetadata(props: PageProps): Promise<Metadata> {
-	const { lng, slug } = props.params
-	const blog = await getDetailedService(lng, slug)
+export async function generateMetadata({
+	params,
+}: {
+	params: { lng: string; slug: string }
+}): Promise<Metadata> {
+	const { lng, slug } = params
+	const service = await getDetailedService(slug, lng)
 
 	return {
-		title: blog.title,
+		title: service.title,
 		openGraph: {
-			images: blog.image.url,
-			title: blog.title,
+			images: service.image.url,
+			title: service.title,
 		},
 	}
 }
@@ -25,7 +29,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 export default async function SlugPage({ params }: PageProps) {
 	const { slug, lng } = params
 
-	const service = await getDetailedService(lng, slug)
+	const service = await getDetailedService(slug, lng)
 
 	return (
 		<div className='max-w-3xl mx-auto px-4 sm:px-6 md:px-8 py-10'>

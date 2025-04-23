@@ -15,8 +15,12 @@ interface PageProps {
 	}
 }
 
-export async function generateMetadata(props: PageProps): Promise<Metadata> {
-	const { lng, slug } = props.params
+export async function generateMetadata({
+	params,
+}: {
+	params: { lng: string; slug: string }
+}): Promise<Metadata> {
+	const { lng, slug } = params
 	const blog = await getDetailedBlog(slug, lng)
 
 	return {
