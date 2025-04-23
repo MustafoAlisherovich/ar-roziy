@@ -1,0 +1,9 @@
+{
+	"redirects": [
+		{
+			"source": "/:lng/blog",
+			"destination": "/:lng",
+			"permanent": true
+		}
+	]
+}
