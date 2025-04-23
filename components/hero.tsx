@@ -1,11 +1,11 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import UseTranslate from '@/hooks/use-translate'
+import useTranslate from '@/hooks/use-translate'
 import Link from 'next/link'
 
 const HeroPage = () => {
-	const t = UseTranslate()
+	const t = useTranslate()
 
 	return (
 		<section

@@ -1,14 +1,14 @@
 'use client'
 
 import { NavLinks } from '@/constants'
-import UseTranslate from '@/hooks/use-translate'
+import useTranslate from '@/hooks/use-translate'
 import { Mail, MapPin, PhoneCall } from 'lucide-react'
 import Link from 'next/link'
 import { Separator } from '../ui/separator'
 import LogoFooter from './logoFooter'
 
 const Footer = () => {
-	const t = UseTranslate()
+	const t = useTranslate()
 	return (
 		<>
 			<div className=' pt-12 mt-20 bg-secondary max-md:px-4'>

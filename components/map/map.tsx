@@ -1,9 +1,9 @@
 'use client'
 
-import UseTranslate from '@/hooks/use-translate'
+import useTranslate from '@/hooks/use-translate'
 
 const Map = () => {
-	const t = UseTranslate()
+	const t = useTranslate()
 
 	return (
 		<div className='mt-12 px-4'>
