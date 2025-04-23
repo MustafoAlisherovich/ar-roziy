@@ -25,7 +25,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { lng, slug } = params
 	const blog = await getDetailedBlog(slug, lng)
-	if (!blog) throw notFound()
+
+	if (!blog) notFound()
 
 	return {
 		title: blog.title,
@@ -44,9 +45,7 @@ export default async function BlogSlugPage({ params }: { params: Params }) {
 	const blog = await getDetailedBlog(slug, lng)
 	const { t } = await translation(lng)
 
-	if (!blog) {
-		return notFound()
-	}
+	if (!blog) return notFound()
 
 	return (
 		<div className='pt-[15vh] max-w-5xl px-4 sm:px-6 md:px-8 mx-auto'>
