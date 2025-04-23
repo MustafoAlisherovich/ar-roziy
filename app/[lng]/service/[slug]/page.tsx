@@ -1,21 +1,28 @@
+// app/[lng]/services/[slug]/page.tsx
+
 import { getDetailedService } from '@/service/services.service'
 import { Metadata } from 'next'
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
 
-interface PageProps {
-	params: {
-		lng: string
-		slug: string
-	}
+// Define params inline
+interface Params {
+	lng: string
+	slug: string
 }
 
+// Explicit generateMetadata signature
 export async function generateMetadata({
 	params,
 }: {
-	params: { lng: string; slug: string }
+	params: Params
 }): Promise<Metadata> {
 	const { lng, slug } = params
 	const service = await getDetailedService(slug, lng)
+
+	if (!service) {
+		throw notFound()
+	}
 
 	return {
 		title: service.title,
@@ -26,10 +33,14 @@ export async function generateMetadata({
 	}
 }
 
-export default async function SlugPage({ params }: PageProps) {
-	const { slug, lng } = params
-
+// Default export page component with inline props
+export default async function ServiceSlugPage({ params }: { params: Params }) {
+	const { lng, slug } = params
 	const service = await getDetailedService(slug, lng)
+
+	if (!service) {
+		return notFound()
+	}
 
 	return (
 		<div className='max-w-3xl mx-auto px-4 sm:px-6 md:px-8 py-10'>

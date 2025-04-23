@@ -1,3 +1,5 @@
+// app/[lng]/blog/[slug]/page.tsx
+
 import ShareButtons from '@/components/shared/share-button'
 import { translation } from '@/i18n/server'
 import { getReadingTime } from '@/lib/utils'
@@ -7,21 +9,26 @@ import parse from 'html-react-parser'
 import { CalendarDays, Clock, Minus } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
 
-interface PageProps {
-	params: {
-		lng: string
-		slug: string
-	}
+// Define params inline instead of using external PageProps
+interface Params {
+	lng: string
+	slug: string
 }
 
+// Use explicit signature for metadata generation
 export async function generateMetadata({
 	params,
 }: {
-	params: { lng: string; slug: string }
+	params: Params
 }): Promise<Metadata> {
 	const { lng, slug } = params
 	const blog = await getDetailedBlog(slug, lng)
+
+	if (!blog) {
+		throw notFound()
+	}
 
 	return {
 		title: blog.title,
@@ -34,11 +41,15 @@ export async function generateMetadata({
 	}
 }
 
-export default async function SlugPage({ params }: PageProps) {
+// Default export page component with inline props
+export default async function BlogSlugPage({ params }: { params: Params }) {
 	const { lng, slug } = params
-
 	const blog = await getDetailedBlog(slug, lng)
 	const { t } = await translation(lng)
+
+	if (!blog) {
+		return notFound()
+	}
 
 	return (
 		<div className='pt-[15vh] max-w-5xl px-4 sm:px-6 md:px-8 mx-auto'>
@@ -62,7 +73,7 @@ export default async function SlugPage({ params }: PageProps) {
 
 			<Image
 				src={blog.image.url}
-				alt='alt'
+				alt={blog.title}
 				width={1120}
 				height={595}
 				className='mt-4 rounded-md w-full h-auto object-cover'
