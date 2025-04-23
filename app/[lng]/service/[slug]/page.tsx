@@ -11,7 +11,6 @@ interface Params {
 	slug: string
 }
 
-// Explicit generateMetadata signature
 export async function generateMetadata({
 	params,
 }: {
@@ -33,7 +32,6 @@ export async function generateMetadata({
 	}
 }
 
-// Default export page component with inline props
 export default async function ServiceSlugPage({ params }: { params: Params }) {
 	const { lng, slug } = params
 	const service = await getDetailedService(slug, lng)

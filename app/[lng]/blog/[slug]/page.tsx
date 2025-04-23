@@ -11,13 +11,13 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
-// Define params inline instead of using external PageProps
+// Params shape for this route
 interface Params {
 	lng: string
 	slug: string
 }
 
-// Use explicit signature for metadata generation
+// Generate metadata
 export async function generateMetadata({
 	params,
 }: {
@@ -25,10 +25,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { lng, slug } = params
 	const blog = await getDetailedBlog(slug, lng)
-
-	if (!blog) {
-		throw notFound()
-	}
+	if (!blog) throw notFound()
 
 	return {
 		title: blog.title,
@@ -41,7 +38,7 @@ export async function generateMetadata({
 	}
 }
 
-// Default export page component with inline props
+// Default export page component
 export default async function BlogSlugPage({ params }: { params: Params }) {
 	const { lng, slug } = params
 	const blog = await getDetailedBlog(slug, lng)
