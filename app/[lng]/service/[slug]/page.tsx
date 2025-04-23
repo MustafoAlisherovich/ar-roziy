@@ -20,7 +20,7 @@ export async function generateMetadata({
 	const service = await getDetailedService(slug, lng)
 
 	if (!service) {
-		throw notFound()
+		return notFound()
 	}
 
 	return {

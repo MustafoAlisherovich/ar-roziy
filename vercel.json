@@ -1,4 +1,24 @@
 {
+	"builds": [
+		{
+			"src": "app/[lng]/blog/[slug]/page.tsx",
+			"use": "@vercel/node"
+		},
+		{
+			"src": "app/[lng]/services/[slug]/page.tsx",
+			"use": "@vercel/node"
+		}
+	],
+	"routes": [
+		{
+			"src": "/:lng/blog/:slug",
+			"dest": "/app/[lng]/blog/[slug]/page.tsx"
+		},
+		{
+			"src": "/:lng/services/:slug",
+			"dest": "/app/[lng]/services/[slug]/page.tsx"
+		}
+	],
 	"redirects": [
 		{
 			"source": "/:lng/blog",
